@@ -21,7 +21,7 @@ claude --system .claude/system.md
 ---
 
 
-📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
+## 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
 Step 1 — Add raw meeting notes
 notepad input/meeting_2026-04-02-search-kickoff.txt
 
@@ -60,7 +60,7 @@ meetings/2026-04-02-search-kickoff/artifact.md
 ---
 
 
-🔍 Use Case 2: Synthesize Insights (Agent B)
+## 🔍 Use Case 2: Synthesize Insights (Agent B)
 
 Generate insights across one or more meetings.
 
@@ -96,7 +96,7 @@ Input can include multiple artifacts
 ---
 
 
-📄 Use Case 3: Generate a PRD (Agent C)
+## 📄 Use Case 3: Generate a PRD (Agent C)
 Step 1 — Run Agent C
 
 Activate:
@@ -119,7 +119,7 @@ product/PRD-search-latency.md
 ---
 
 
-📤 Use Case 4: Export to Word (Optional)
+## 📤 Use Case 4: Export to Word (Optional)
 Step 1 — Install Pandoc
 
 https://pandoc.org/installing.html
@@ -129,7 +129,7 @@ pandoc product/PRD-search-latency.md -o product/PRD-search-latency.docx
 
 📌 Markdown remains the source of truth.
 
-🧠 Design Principles
+## 🧠 Design Principles
 One meeting → one artifact
 Artifacts are immutable history
 
