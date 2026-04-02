@@ -98,3 +98,11 @@ product-agent/
 
 └─ README.md
 
+
+\
+## 🚀 How to Use
+
+For complete step-by-step instructions, see:
+
+👉 **[USAGE INSTRUCTION.md](./USAGE INSTRUCTION.md)**
+
