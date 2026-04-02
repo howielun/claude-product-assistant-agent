@@ -99,8 +99,7 @@ product-agent/
 └─ README.md
 
 
-\
-## 🚀 How to Use
+\## 🚀 How to Use
 
 For complete step-by-step instructions, see:
 
