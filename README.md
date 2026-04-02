@@ -1,4 +1,5 @@
 🚀 Quick Start
+
 1️⃣ Requirements
 
 Claude CLI / terminal environment with filesystem access
@@ -10,6 +11,7 @@ From the project root:
 In PowerShell
 cd path\to\product-agent
 claude --system .claude/system.md
+
 
 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
 Step 1 - Add raw meeting notes:
@@ -32,6 +34,7 @@ Do not create additional files.
 ✅ Result:
 meetings/**2026-04-02-search-kickoff**/**artifact.md**
 Note: Each meeting always produces one artifact.
+
 
 🔍 Use Case 2: Synthesize Insights (Agent B)
 Generate insights across one or more meetings.
