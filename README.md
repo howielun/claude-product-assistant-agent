@@ -1,140 +1,119 @@
-🚀 Quick Start
+## 🚀 Quick Start
 
-1️⃣ Requirements
+---
 
-Claude CLI / terminal environment with filesystem access
+### 1️⃣ Requirements
 
-PowerShell (Windows) or Terminal (macOS/Linux)
+- Claude CLI / terminal environment with filesystem access  
+- PowerShell (Windows) or Terminal (macOS/Linux)  
+- (Optional) [Pandoc](https://pandoc.org/) for Word export  
 
-Optional: https://pandoc.org/ for Word export
+---
 
-2️⃣ Initialize Claude
-From the project root:(In Powershell)
+### 2️⃣ Initialize Claude
 
+From the project root (PowerShell):
+
+```bash
 cd path\to\product-agent
-
 claude --system .claude/system.md
-
-
-
-
 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
+Step 1 — Add raw meeting notes
+notepad input/meeting_2026-04-02-search-kickoff.txt
 
-Step 1 - Add raw meeting notes:
+📌 Note 1
+Paste raw notes or transcript directly — no cleanup needed.
 
-notepad input\**meeting_2026-04-02-search-kickoff**.txt
+📌 Note 2
+You can choose any filename for the raw meeting notes.
 
-Note 1: Paste raw notes or transcript directly (no cleanup needed)
+Step 2 — Run Agent A
 
-Note 2: For the bolded section, you may choose whichever name you prefer to use for the raw meeting notes
+Activate:
 
+MeetingStructuringAgent
 
-Step 2 - Run Agent A (Prompt as below)
+Input:
 
-Activate Agent A: MeetingStructuringAgent.
+input/meeting_2026-04-02-search-kickoff.txt
 
-Input file:
+Output:
 
-- input/**meeting_2026-04-02-search-kickoff**.txt
+meetings/2026-04-02-search-kickoff/
 
-Output directory:
+Rules:
 
-- meetings/**2026-04-02-search-kickoff**/
+Create a single file named artifact.md
+Do not create additional files
 
-Create a single file named **artifact.md**.
+✅ Result
 
-Do not create additional files.
+meetings/2026-04-02-search-kickoff/artifact.md
 
-
-✅ Result:
-
-meetings/**2026-04-02-search-kickoff**/**artifact.md**
-
-Note: Each meeting always produces one artifact.
-
-
-
+📌 Each meeting produces exactly one artifact.
 
 🔍 Use Case 2: Synthesize Insights (Agent B)
 
 Generate insights across one or more meetings.
 
+Step 1 — Run Agent B
 
-Step 1 - Run Agent B (Prompt as below)
+Activate:
 
-Activate Agent B: ProductSynthesisAgent.
+ProductSynthesisAgent
 
-Input artifacts:
+Input:
 
-- meetings/**/**artifact**.md
+meetings/**/artifact.md
 
+Focus (optional):
 
-Focus on:
+Domain: search
+Problem: latency
 
-- Domain: search
-  
-- Problem: latency
+Output:
 
+product/synthesis-search-latency.md
 
-Output path:- product/**synthesis-search-latency**.md
+✅ Result
 
+product/synthesis-search-latency.md
 
-✅ Result:
+📌 Notes:
 
-product/**synthesis-search-latency**.md
-
-Note 1: You can generate multiple syntheses from the same artifacts.
-
-Note 2: Input can be multiple artifact
-
-Note 3: "Focus on" can be optional
-
-
-
-
+You can generate multiple syntheses from the same artifacts
+Input can include multiple artifacts
+"Focus" is optional
 📄 Use Case 3: Generate a PRD (Agent C)
+Step 1 — Run Agent C
 
-Step 1 - Run Agent C
+Activate:
 
-Activate Agent C: PRDWritingAgent.
+PRDWritingAgent
 
+Input:
 
-Use synthesis file:
+product/synthesis-search-latency.md
 
-- product/**synthesis-search-latency**.md
+Output:
 
-Output path:
+product/PRD-search-latency.md
 
-- product/**PRD-search-latency**.md
+✅ Result
 
-
-✅ Result:
-
-product/**PRD-search-latency**.md
-
-
-
-
-📤 Use Case 4 - Export to Word (Optional)
-
-Step 1 - Install Pandoc once:
+product/PRD-search-latency.md
+📤 Use Case 4: Export to Word (Optional)
+Step 1 — Install Pandoc
 
 https://pandoc.org/installing.html
 
-Step 2 - Convert PRD to Word:
+Step 2 — Convert PRD to Word
+pandoc product/PRD-search-latency.md -o product/PRD-search-latency.docx
 
-pandoc product\PRD-search-latency.md `  
-
--o product\PRD-search-latency.docx
-
-
-Note: Markdown remains the source of truth.
-
+📌 Markdown remains the source of truth.
 
 🧠 Design Principles
-
 One meeting → one artifact
-
 Artifacts are immutable history
 
 Synthesis is perspective-based and cheap to regenerate
