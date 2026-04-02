@@ -1,134 +1,100 @@
-## 🚀 Quick Start
+\# Claude Product Agent 🧠📄
 
----
 
-### 1️⃣ Requirements
 
-- Claude CLI / terminal environment with filesystem access  
-- PowerShell (Windows) or Terminal (macOS/Linux)  
-- (Optional) [Pandoc](https://pandoc.org/) for Word export  
+A multi-agent workflow for turning meeting notes into structured insights and PRDs using Claude (terminal / CLI).
 
----
 
-### 2️⃣ Initialize Claude
 
-From the project root (PowerShell):
+This toolkit is designed for Product Managers and teams who want to:
 
-```bash
-cd path\to\product-agent
-claude --system .claude/system.md
-```
+\- Organize meeting notes reliably
 
----
+\- Extract long-term product insights
 
-## 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
+\- Generate PRDs with traceable sources
 
-### Step 1 — Add raw meeting notes
+\- Export clean, human-readable documents (Word)
 
-```bash
-notepad input/meeting_2026-04-02-search-kickoff.txt
-```
 
-📌 **Note 1**  
-Paste raw notes or transcript directly — no cleanup needed.
 
-📌 **Note 2**  
-You can choose any filename for the raw meeting notes.
+\---
 
----
 
-### Step 2 — Run Agent A
 
-**Activate**
-- `MeetingStructuringAgent`
+\## ✨ What This Is
 
-**Input**
-- `input/meeting_2026-04-02-search-kickoff.txt`
 
-**Output**
-- `meetings/2026-04-02-search-kickoff/`
 
-**Rules**
-- Create a single file named `artifact.md`  
-- Do not create additional files  
+This is \*\*not a chatbot\*\*.
 
-✅ **Result**
-```bash
-meetings/2026-04-02-search-kickoff/artifact.md
-```
 
-📌 Each meeting produces exactly one artifact.
 
----
+This is a \*\*product documentation system\*\* powered by Claude that enforces:
 
-## 🔍 Use Case 2: Synthesize Insights (Agent B)
+\- Clear separation of responsibilities (agents)
 
-Generate insights across one or more meetings.
+\- Structured, reusable artifacts
 
-### Step 1 — Run Agent B
+\- Topic-based knowledge accumulation (Domain / Problem)
 
-**Activate**
-- `ProductSynthesisAgent`
+\- Explicit, reviewable outputs at every step
 
-**Input**
-- `meetings/**/artifact.md`
 
-**Focus (optional)**
-- Domain: `search`  
-- Problem: `latency`  
 
-**Output**
-- `product/synthesis-search-latency.md`
+\---
 
-✅ **Result**
-```bash
-product/synthesis-search-latency.md
-```
 
-📌 **Notes**
-- You can generate multiple syntheses from the same artifacts  
-- Input can include multiple artifacts  
-- "Focus" is optional  
 
----
+\## 🧠 Agent Overview
 
-## 📄 Use Case 3: Generate a PRD (Agent C)
 
-### Step 1 — Run Agent C
 
-**Activate**
-- `PRDWritingAgent`
+| Agent | Responsibility | Output |
 
-**Input**
-- `product/synthesis-search-latency.md`
+|------|---------------|--------|
 
-**Output**
-- `product/PRD-search-latency.md`
+| Agent A | Structure raw meeting notes | `artifact.md` |
 
-✅ **Result**
-```bash
-product/PRD-search-latency.md
-```
+| Agent B | Synthesize insights across meetings | `synthesis-\*.md` |
 
----
+| Agent C | Generate PRD from synthesis | `PRD-\*.md` |
 
-## 📤 Use Case 4: Export to Word (Optional)
 
-### Step 1 — Install Pandoc
 
-https://pandoc.org/installing.html
+\---
 
-### Step 2 — Convert PRD to Word
 
-```bash
-pandoc product/PRD-search-latency.md -o product/PRD-search-latency.docx
-```
 
-📌 Markdown remains the source of truth.
+\## 📁 Project Structure
 
----
 
-## 🧠 Design Principles
 
-- One meeting → one artifact  
-- Artifacts are immutable history  
+```text
+
+product-agent/
+
+├─ input/                  # Raw meeting notes (human input)
+
+├─ meetings/               # One folder per meeting
+
+│  └─ YYYY-MM-DD-topic/
+
+│     └─ artifact.md
+
+├─ product/                # Syntheses and PRDs
+
+│  ├─ synthesis-\*.md
+
+│  └─ PRD-\*.md
+
+├─ .claude/
+
+│  └─ system.md            # Multi-agent system prompt
+
+├─ scripts/
+
+│  └─ export.ps1           # Markdown → Word
+
+└─ README.md
+

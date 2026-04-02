@@ -1,0 +1,17 @@
+Meeting: Testing - Search V2 Kickoff
+
+We discussed improving the search experience for enterprise users.
+The main problems are slow response time and irrelevant results.
+
+Decisions:
+- Focus on performance before adding new features.
+
+Ideas:
+- Introduce query caching.
+- Improve ranking algorithm.
+
+Constraints:
+- Must reuse existing infrastructure.
+
+Open questions:
+- What is the target latency?
