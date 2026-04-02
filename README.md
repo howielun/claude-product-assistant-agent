@@ -17,6 +17,10 @@ From the project root (PowerShell):
 ```bash
 cd path\to\product-agent
 claude --system .claude/system.md
+
+---
+
+
 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
 Step 1 — Add raw meeting notes
 notepad input/meeting_2026-04-02-search-kickoff.txt
@@ -52,6 +56,10 @@ meetings/2026-04-02-search-kickoff/artifact.md
 
 📌 Each meeting produces exactly one artifact.
 
+
+---
+
+
 🔍 Use Case 2: Synthesize Insights (Agent B)
 
 Generate insights across one or more meetings.
@@ -84,6 +92,10 @@ product/synthesis-search-latency.md
 You can generate multiple syntheses from the same artifacts
 Input can include multiple artifacts
 "Focus" is optional
+
+---
+
+
 📄 Use Case 3: Generate a PRD (Agent C)
 Step 1 — Run Agent C
 
@@ -102,6 +114,11 @@ product/PRD-search-latency.md
 ✅ Result
 
 product/PRD-search-latency.md
+
+
+---
+
+
 📤 Use Case 4: Export to Word (Optional)
 Step 1 — Install Pandoc
 
