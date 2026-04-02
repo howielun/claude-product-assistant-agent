@@ -16,6 +16,8 @@ cd path\to\product-agent
 claude --system .claude/system.md
 
 
+
+
 📝 Use Case 1: Convert Notes into a Standardized Format (Agent A)
 
 Step 1 - Add raw meeting notes:
@@ -49,6 +51,8 @@ Do not create additional files.
 meetings/**2026-04-02-search-kickoff**/**artifact.md**
 
 Note: Each meeting always produces one artifact.
+
+
 
 
 🔍 Use Case 2: Synthesize Insights (Agent B)
@@ -86,6 +90,8 @@ Note 2: Input can be multiple artifact
 Note 3: "Focus on" can be optional
 
 
+
+
 📄 Use Case 3: Generate a PRD (Agent C)
 
 Step 1 - Run Agent C
@@ -105,6 +111,8 @@ Output path:
 ✅ Result:
 
 product/**PRD-search-latency**.md
+
+
 
 
 📤 Use Case 4 - Export to Word (Optional)
